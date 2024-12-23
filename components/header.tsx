@@ -29,11 +29,14 @@ export function Header() {
           <Badge variant="destructive" className="absolute -top-0.5 -right-0.5 h-3 w-3 rounded-full p-0 flex items-center justify-center">
           </Badge>
         </div>
-        <Avatar>
-          <AvatarImage src="/placeholder.svg" />
-          <AvatarFallback>AD</AvatarFallback>
-        </Avatar>
-        <div className="font-medium">Adeline H. Dancy</div>
+        <div className="flex items-center space-x-2">
+          <img
+            src="/t1.jpeg"
+            alt="Avatar"
+            className="h-8 w-8 rounded-md border border-gray-300"
+          />
+          <span className="font-medium">Adeline H. Dancy</span>
+        </div>
       </div>
     </header>
   )

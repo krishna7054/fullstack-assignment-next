@@ -1,23 +1,28 @@
-import { Button } from "@/components/ui/button"
+"use client"; // Add this directive to make the component a client component
+
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Header } from "@/components/header"
-import { Sidebar } from "@/components/sidebar"
-import { StudentsTable } from "@/components/students-table"
-import { Plus } from 'lucide-react';
+} from "@/components/ui/select";
+import { Header } from "@/components/header";
+import { Sidebar } from "@/components/sidebar";
+import { StudentsTable } from "@/components/students-table";
+import { Plus } from "lucide-react";
 
 export default function Page() {
+
+
   return (
     <div className="min-h-screen">
       <Sidebar />
       <div className="ml-60">
         <Header />
-        <main className="p-6 my-20 rounded-md bg-white mx-3 ">
+        <main className="p-6 my-20 rounded-md bg-white mx-3">
           <div className="flex items-center justify-between mb-6">
             <div className="flex gap-4">
               <Select defaultValue="2024-25">
@@ -38,12 +43,14 @@ export default function Page() {
               </Select>
             </div>
             <Button>
-              <Plus className="animate-pulse"/>Add new Student</Button>
+              <Plus className="animate-pulse" />
+              Add new Student
+            </Button>
           </div>
-          <StudentsTable />
+          {/* Pass the students data to the StudentsTable */}
+          <StudentsTable  />
         </main>
       </div>
     </div>
-  )
+  );
 }
-
