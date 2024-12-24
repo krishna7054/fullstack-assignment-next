@@ -19,19 +19,17 @@ interface Student {
 }
 
 export function StudentsTable() {
-  // Initialize the state with the correct type
   const [students, setStudents] = useState<Student[]>([]);
 
   useEffect(() => {
     const fetchStudents = async () => {
       // @ts-ignore
-      const supabase = createClient(); // Create the Supabase client
+      const supabase = createClient();
       const { data, error } = await supabase.from("Student").select("*");
-      
+
       if (error) {
         console.error("Error fetching students:", error);
       } else {
-        // Set the fetched data to the state
         setStudents(data);
       }
     };
@@ -39,30 +37,56 @@ export function StudentsTable() {
     fetchStudents();
   }, []);
 
+  const formatDate = (dateString: string | number | Date) => {
+    const date = new Date(dateString);
+    const options = { year: "numeric", month: "short", day: "numeric" };
+    // @ts-ignore
+    return date.toLocaleDateString("en-GB", options);
+  };
+
+  const formatDateTime = (dateString: string | number | Date) => {
+    const date = new Date(dateString);
+    const options = {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    };
+
+    // @ts-ignore
+    let formattedDate = date.toLocaleString("en-GB", options);
+    formattedDate = formattedDate.replace(/(am|pm)/i, (match) => match.toUpperCase());
+    return formattedDate;
+  };
+
   return (
     <div className="overflow-x-auto">
-      <Table>
+      <Table className="w-full">
         <TableHeader>
           <TableRow>
             <TableHead>Student Name</TableHead>
             <TableHead>Cohort</TableHead>
             <TableHead>Courses</TableHead>
             <TableHead>Date Joined</TableHead>
-            <TableHead>Last login</TableHead>
+            <TableHead>Last Login</TableHead>
             <TableHead>Status</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {students.map((student, index) => (
-            <TableRow key={index}>
-              <TableCell className="font-normal">{student.studentName}</TableCell>
-              <TableCell>{student.cohort}</TableCell>
+            <TableRow key={index} className="  md:table-row">
+              <TableCell className="text-sm md:text-lg font-normal">
+                {student.studentName}
+              </TableCell>
+              <TableCell className="text-sm md:text-lg">{student.cohort}</TableCell>
               <TableCell>
-                <div className="flex gap-2">
+                <div className="flex flex-wrap gap-2 text-sm md:text-lg md:-mr-24">
                   {student.courses.map((course, i) => (
                     <div
                       key={i}
-                      className="flex items-center gap-1 bg-slate-100 rounded-md"
+                      className="flex items-center gap-1 bg-slate-100 rounded-md px-2 py-1"
                     >
                       {i % 2 === 0 ? (
                         <img src="st1.png" alt="st1" className="h-5 w-5" />
@@ -74,8 +98,8 @@ export function StudentsTable() {
                   ))}
                 </div>
               </TableCell>
-              <TableCell>{student.dateJoined}</TableCell>
-              <TableCell>{student.lastLogin}</TableCell>
+              <TableCell className="text-sm md:text-lg">{formatDate(student.dateJoined)}</TableCell>
+              <TableCell className="text-sm md:text-lg">{formatDateTime(student.lastLogin)}</TableCell>
               <TableCell>
                 <div
                   className={`h-2 w-2 rounded-full ml-4 ${

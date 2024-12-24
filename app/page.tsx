@@ -1,30 +1,25 @@
-"use client"; // Add this directive to make the component a client component
-
-import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
+"use client"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Header } from "@/components/header";
-import { Sidebar } from "@/components/sidebar";
-import { StudentsTable } from "@/components/students-table";
-import { Plus } from "lucide-react";
+} from "@/components/ui/select"
+import { Header } from "@/components/header"
+import { Sidebar } from "@/components/sidebar"
+import { StudentsTable } from "@/components/students-table"
+import { AddStudentForm } from "@/components/add-student-form"
 
 export default function Page() {
-
-
   return (
     <div className="min-h-screen">
       <Sidebar />
       <div className="ml-60">
         <Header />
-        <main className="p-6 my-20 rounded-md bg-white mx-3">
+        <main className="p-4 my-20 rounded-md bg-white  w-fit lg:w-full">
           <div className="flex items-center justify-between mb-6">
-            <div className="flex gap-4">
+            <div className="flex gap-2 md:gap-4 ">
               <Select defaultValue="2024-25">
                 <SelectTrigger className="w-[180px]">
                   <SelectValue placeholder="Select year" />
@@ -42,15 +37,12 @@ export default function Page() {
                 </SelectContent>
               </Select>
             </div>
-            <Button>
-              <Plus className="animate-pulse" />
-              Add new Student
-            </Button>
+            <AddStudentForm />
           </div>
-          {/* Pass the students data to the StudentsTable */}
-          <StudentsTable  />
+          <StudentsTable />
         </main>
       </div>
     </div>
-  );
+  )
 }
+

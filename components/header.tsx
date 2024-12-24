@@ -1,15 +1,14 @@
 import { Search, HelpCircle, MessageSquare, Bell, Settings2 } from 'lucide-react'
 import { Input } from "@/components/ui/input"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 
 export function Header() {
   return (
     <header className="fixed top-0 right-0 left-60 flex h-16 items-center px-4 border-b bg-white z-10">
       <div className="flex flex-1 items-center space-x-4">
-        <div className="relative w-96">
+        <div className="relative w-42 md:w-96">
           <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
-          <Input placeholder="Search your course" className="pl-8" />
+          <Input placeholder="Search your course" className=" pl-8" />
         </div>
       </div>
       <div className="flex items-center space-x-4">
