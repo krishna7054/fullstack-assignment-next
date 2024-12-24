@@ -23,7 +23,7 @@ export function StudentsTable() {
 
   useEffect(() => {
     const fetchStudents = async () => {
-      // @ts-ignore
+      
       const supabase = createClient();
       const { data, error } = await supabase.from("Student").select("*");
 
@@ -39,14 +39,17 @@ export function StudentsTable() {
 
   const formatDate = (dateString: string | number | Date) => {
     const date = new Date(dateString);
-    const options = { year: "numeric", month: "short", day: "numeric" };
-    // @ts-ignore
+    const options: Intl.DateTimeFormatOptions = { 
+      year: "numeric", 
+      month: "short", 
+      day: "numeric" 
+    };
     return date.toLocaleDateString("en-GB", options);
   };
 
   const formatDateTime = (dateString: string | number | Date) => {
     const date = new Date(dateString);
-    const options = {
+    const options: Intl.DateTimeFormatOptions = {
       year: "numeric",
       month: "short",
       day: "numeric",
@@ -55,7 +58,7 @@ export function StudentsTable() {
       hour12: true,
     };
 
-    // @ts-ignore
+    
     let formattedDate = date.toLocaleString("en-GB", options);
     formattedDate = formattedDate.replace(/(am|pm)/i, (match) => match.toUpperCase());
     return formattedDate;

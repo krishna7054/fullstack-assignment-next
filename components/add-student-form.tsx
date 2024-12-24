@@ -34,7 +34,7 @@ export function AddStudentForm() {
 
     // Insert student data into Supabase
     try {
-        // @ts-ignore
+        
       const supabase = createClient();
       const { error } = await supabase.from("Student").insert([studentData]);
       if (error) throw error;
