@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FullStack-assignment-nextjs
 
-## Getting Started
+## Overview
+The Student Management System is a modern web-based solution designed to streamline the process of managing student information. With features for adding, viewing, and organizing student details, this system is built to ensure optimal performance and scalability. The project combines a Next.js frontend with a robust Next.js backend powered by PostgreSQL, Prisma ORM, and Supabase.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
+- Effortlessly add, edit, and view student details.
+- Real-time updates using Redux for state management.
+- Elegant and consistent date formatting using Tailwind CSS.
+- Secure and scalable backend architecture leveraging PostgreSQL and Prisma ORM.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Technologies Used
+### Frontend:
+- **Next.js**: For building the user interface.
+- **Tailwind CSS**: For styling and design.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Backend:
+- **PostgreSQL**: As the relational database.
+- **Prisma ORM**: For efficient database management.
+- **Supabase**: For real-time database operations and APIs.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Frontend Installation Steps
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/krishna7054/fullstack-assignment-next.git
+   cd fullstack-assessment-next
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Start the Development Server**
+   ```bash
+   npm run dev
+   ```
 
-## Deploy on Vercel
+4. **Environment Variables**
+   Create a `.env` file in the `frontend` folder with the following:
+   ```env
+   REACT_APP_SUPABASE_URL=your_supabase_url
+   REACT_APP_SUPABASE_KEY=your_supabase_key
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+5. **Access the Application**
+   Open your browser and navigate to `http://localhost:3000`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Preview
+<p>
+   <img src="https://github.com/user-attachments/assets/f0858017-cff7-4d33-9302-3c6ecb33e43b" width=45% height = 300>
+ <img src="https://github.com/user-attachments/assets/615ff42d-af31-4d26-aecc-13d33e97cbc2" width=45% height = 300>
+
+</p>
+
+---
+
