@@ -12,6 +12,10 @@ const sidebarItems = [
 ]
 
 export function Sidebar() {
+  function href(arg0: string): import("clsx").ClassValue {
+    throw new Error("Function not implemented.")
+  }
+
   return (
     <div className="fixed left-0 top-0 bottom-0 w-60 pb-12 border-r bg-white overflow-y-auto">
       <div className="space-y-4 py-4">
